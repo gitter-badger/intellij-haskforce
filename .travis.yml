@@ -25,7 +25,7 @@ install:
         rm -rf $IDEA_PARENT_DIR
         mkdir -p $IDEA_PARENT_DIR
         echo "Downloading IDEA archive."
-        travis_retry wget http://download.jetbrains.com/idea/$IDEA_TAR -P $HOME
+        travis_retry wget --max-redirect=2 http://download.jetbrains.com/idea/$IDEA_TAR -P $HOME
         echo "Installing IDEA to $IDEA_DIR"
         tar xzvf $HOME/$IDEA_TAR -C $IDEA_PARENT_DIR
         mv $IDEA_PARENT_DIR/idea-IC-* $IDEA_DIR
